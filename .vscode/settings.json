@@ -1,0 +1,8 @@
+{
+  "eslint.lintTask.enable": true,
+  "eslint.packageManager": "yarn",
+  "prettier.packageManager": "yarn",
+  "prettier.useTabs": true,
+  "prettier.vueIndentScriptAndStyle": true,
+  "eslint.format.enable": true
+}
