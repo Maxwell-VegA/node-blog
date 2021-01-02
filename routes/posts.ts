@@ -21,9 +21,10 @@ router.get("/", async (req: Request, res: Response) => {
 router.get("/:id", async (req: Request, res: Response) => {
   try {
     const post = await Post.findById(req.params.id);
-    res.json(post);
+    res.render("post", { post });
   } catch (err) {
-    res.json({ message: err });
+    console.log(err);
+    res.render("error", { error: err });
   }
 });
 

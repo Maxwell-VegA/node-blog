@@ -1,5 +1,19 @@
-<% for( let i = 0; i < posts.length; i++ ) { %>
-    <h2><%- posts[i].title %> </h2>
-    <p><%- posts[i].description %> </p>
-    <span><%- new Date(posts[i].date).toDateString() %> </span>
-<% } %>
+<div class="row">
+	<div class="col s12 m6">
+		<% for( let i = 0; i < posts.length; i++ ) { %>
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<span class="card-title">
+                    <%- posts[i].title %> 
+                </span>
+				<p>
+                    <p><%- posts[i].description %></p>
+				</p>
+			</div>
+			<div class="card-action">
+                <span><%- new Date(posts[i].date).toDateString() %> </span>
+			</div>
+		</div>
+		<% } %>
+	</div>
+</div>
