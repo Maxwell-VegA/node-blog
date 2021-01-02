@@ -6,17 +6,17 @@ import express, {
   NextFunction,
   urlencoded,
 } from "express";
+import expressLayouts from "express-ejs-layouts";
 const app: Application = express();
 import "dotenv/config";
 
+app.set("view engine", "ejs");
+app.use(expressLayouts);
 app.use(express.json());
-// app.use(bodyParser.json());
 app.use(urlencoded({ extended: false }));
 
 const postsRoute = require("./routes/posts");
-const authRoute = require("./routes/auth");
 app.use("/posts", postsRoute);
-app.use("/api/auth", authRoute);
 
 app.get("/", (req: Request, res) => {
   res.json({ foo: 1 });

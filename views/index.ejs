@@ -1,0 +1,5 @@
+<% for( let i = 0; i < posts.length; i++ ) { %>
+    <h2><%- posts[i].title %> </h2>
+    <p><%- posts[i].description %> </p>
+    <span><%- new Date(posts[i].date).toDateString() %> </span>
+<% } %>

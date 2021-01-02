@@ -1,20 +1,20 @@
 import express, { Router, Request, Response, NextFunction } from "express";
-import * as _ from "lodash";
 const Post = require("../models/Post");
 
 const router: Router = express.Router();
 
-router.use("/", (req: Request, res: Response, next: NextFunction) => {
-  console.log("Middleware");
-  return next();
-});
+// router.use("/", (req: Request, res: Response, next: NextFunction) => {
+//   console.log("Middleware");
+//   return next();
+// });
 
 router.get("/", async (req: Request, res: Response) => {
   try {
     const posts = await Post.find();
-    res.status(200).json(posts);
+    res.render("index", { posts });
   } catch (err) {
-    res.json({ message: err });
+    console.log(err);
+    res.render("error", { error: err });
   }
 });
 
